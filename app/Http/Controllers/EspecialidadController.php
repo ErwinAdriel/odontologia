@@ -14,7 +14,9 @@ class EspecialidadController extends Controller
      */
     public function index()
     {
-        //
+        $especialidades = Especialidad::all();
+        //return view('especialidades.list', ['especialidades' => $especialidades]);
+        return view('especialidades.list', compact('especialidades'));
     }
 
     /**
@@ -24,7 +26,7 @@ class EspecialidadController extends Controller
      */
     public function create()
     {
-        //
+        return view('especialidades.create');
     }
 
     /**
@@ -35,7 +37,13 @@ class EspecialidadController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $especialidad = new Especialidad();
+
+        $especialidad->nombre = $request->nombre;
+
+        $especialidad->save();
+
+        return redirect('/especialidades');
     }
 
     /**
@@ -55,9 +63,10 @@ class EspecialidadController extends Controller
      * @param  \App\Especialidad  $especialidad
      * @return \Illuminate\Http\Response
      */
-    public function edit(Especialidad $especialidad)
+    public function edit($id)
     {
-        //
+        $especialidad= Especialidad::findOrFail($id);
+        return view('especialidades.edit', compact('especialidad'));
     }
 
     /**
@@ -67,9 +76,15 @@ class EspecialidadController extends Controller
      * @param  \App\Especialidad  $especialidad
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Especialidad $especialidad)
+    public function update(Request $request, $id)
     {
-        //
+        $especialidad = Especialidad::findOrFail($id);
+
+        $especialidad->nombre = $request->nombre;
+
+        $especialidad->save();
+
+        return redirect('/especialidades');
     }
 
     /**

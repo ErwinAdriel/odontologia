@@ -16,3 +16,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::resource('medicos', 'MedicoController');
+Route::resource('pacientes', 'PacienteController');
+Route::resource('especialidades', 'EspecialidadController');
+Route::resource('turnos', 'TurnoController');
