@@ -71,10 +71,11 @@
                 </div>
 
                 <div class="links">
-                    <a href="medicos">Medicos</a>
-                    <a href="pacientes">Pacientes</a>
-                    <a href="especialidades">Especialidades</a>
-                    <a href="turnos">Turnos</a>
+                    <a href="/medicos">Medicos</a>
+                    <a href="/cargos">Cargos</a>
+                    <a href="/pacientes">Pacientes</a>
+                    <a href="/especialidades">Especialidades</a>
+                    <a href="/turnos">Turnos</a>
                 </div>
             </div>
         </div>

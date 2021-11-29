@@ -21,8 +21,8 @@ class CreatePacientesTable extends Migration
             $table->string('domicilio');
             $table->string('telefono');
             $table->string('historia_clinica');
-            $table->datetime('fecha_de_nacimineto');
-            $table->boolean('esMasculino')->default(true);
+            $table->datetime('fecha_de_nacimiento');
+            $table->string('genero');
         });
     }
 

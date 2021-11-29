@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Medico;
+use App\Cargo;
 use Illuminate\Http\Request;
 
-class MedicoController extends Controller
+class CargoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class MedicoController extends Controller
      */
     public function index()
     {
-        $medicos = Medico::all();
-        return view('medicos.list', compact('medicos'));
+        $cargos = Cargo::all();
+        return view('cargos.list', compact('cargos'));
     }
 
     /**
@@ -25,7 +25,7 @@ class MedicoController extends Controller
      */
     public function create()
     {
-        return view('medicos.create');
+        return view('cargos.create');
     }
 
     /**
@@ -36,16 +36,22 @@ class MedicoController extends Controller
      */
     public function store(Request $request)
     {
-        
+        $cargo = new Cargo();
+
+        $cargo->nombre = $request->nombre;
+
+        $cargo->save();
+
+        return redirect('/cargos');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Medico  $medico
+     * @param  \App\Cargo  $cargo
      * @return \Illuminate\Http\Response
      */
-    public function show(Medico $medico)
+    public function show(Cargo $cargo)
     {
         //
     }
@@ -53,33 +59,40 @@ class MedicoController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Medico  $medico
+     * @param  \App\Cargo  $cargo
      * @return \Illuminate\Http\Response
      */
-    public function edit(Medico $medico)
+    public function edit($id)
     {
-        //
+        $cargo= Cargo::findOrFail($id);
+        return view('cargos.edit', compact('cargo'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Medico  $medico
+     * @param  \App\Cargo  $cargo
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Medico $medico)
+    public function update(Request $request, $id)
     {
-        //
+        $cargo = Cargo::findOrFail($id);
+
+        $cargo->nombre = $request->nombre;
+
+        $cargo->save();
+
+        return redirect('/cargos');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Medico  $medico
+     * @param  \App\Cargo  $cargo
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Medico $medico)
+    public function destroy(Cargo $cargo)
     {
         //
     }

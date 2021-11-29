@@ -18,6 +18,7 @@ Route::get('/', function () {
 });
 
 Route::resource('medicos', 'MedicoController');
+Route::resource('cargos', 'CargoController');
 Route::resource('pacientes', 'PacienteController');
 Route::resource('especialidades', 'EspecialidadController');
 Route::resource('turnos', 'TurnoController');

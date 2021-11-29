@@ -14,7 +14,8 @@ class TurnoController extends Controller
      */
     public function index()
     {
-        //
+        $turnos = Turno::all();
+        return view('turnos.list', compact('turnos'));
     }
 
     /**
@@ -24,7 +25,7 @@ class TurnoController extends Controller
      */
     public function create()
     {
-        //
+        return view('turnos.create');
     }
 
     /**
