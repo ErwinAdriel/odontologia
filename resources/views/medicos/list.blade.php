@@ -24,9 +24,9 @@
                     <td>{{ $medico->dni }}</td>
                     <td>{{ $medico->nombre }}</td>
                     <td>{{ $medico->apellido }}</td>
-                    <td>{{ $medico->id_especialidad }}</td>
+                    <td>{{ $medico->especialidad->nombre }}</td>
                     <td>{{ $medico->nro_colegiado }}</td>
-                    <td>{{ $medico->id_cargo }}</td>
+                    <td>{{ $medico->cargo->nombre }}</td>
                     <td>
                         <a class="text-primary" href="medicos/{{$medico->id}}/edit">Editar</a>
                         <a class="text-danger" href="">Eliminar</a>

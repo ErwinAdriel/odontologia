@@ -18,9 +18,11 @@
             <input type="text" class="form-control" id="apellido" name="apellido">
         </div>
         <div class="form-group">
-            <label for="exampleFormControlSelect1">Especialidad</label>
-            <select class="form-control" id="especialidad" name="especialidad">
-            <option>1</option>
+            <label for="id_especialidad">Especialidad</label>
+            <select class="form-control" id="id_especialidad" name="id_especialidad" required>
+                @foreach ($especialidades as $especialidad) 
+                    <option value="{{ $especialidad->id }}">{{ $especialidad->nombre }}</option>
+                @endforeach
             </select>
         </div>
         <div class="form-group">
@@ -28,9 +30,11 @@
             <input type="number" class="form-control" id="nro_colegiado" name="nro_colegiado">
         </div>
         <div class="form-group">
-            <label for="exampleFormControlSelect1">Cargo</label>
-            <select class="form-control" id="cargo" name="cargo">
-            <option>1</option>
+            <label for="id_cargo">Cargo</label>
+            <select class="form-control" id="id_cargo" name="id_cargo" required>
+                @foreach ($cargos as $cargo) 
+                    <option value="{{ $cargo->id }}">{{ $cargo->nombre }}</option>
+                @endforeach
             </select>
         </div>
         <button type="submit" class="btn btn-primary">Guardar</button>

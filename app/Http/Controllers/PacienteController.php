@@ -36,7 +36,20 @@ class PacienteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $paciente = new Paciente();
+
+        $paciente->dni = $request->dni;
+        $paciente->nombre = $request->nombre;
+        $paciente->apellido = $request->apellido;
+        $paciente->domicilio = $request->domicilio;
+        $paciente->telefono = $request->telefono;
+        $paciente->historia_clinica = $request->historia_clinica;
+        $paciente->fecha_de_nacimiento = $request->fecha_de_nacimiento;
+        $paciente->genero = $request->genero;
+
+        $paciente->save();
+
+        return redirect('/pacientes');
     }
 
     /**

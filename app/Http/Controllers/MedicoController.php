@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Medico;
+use App\Especialidad;
+use App\Cargo;
 use Illuminate\Http\Request;
 
 class MedicoController extends Controller
@@ -25,7 +27,10 @@ class MedicoController extends Controller
      */
     public function create()
     {
-        return view('medicos.create');
+        $especialidades = Especialidad::all();
+        $cargos = Cargo::all();
+        
+        return view('medicos.create', compact('especialidades', 'cargos'));
     }
 
     /**
@@ -36,7 +41,18 @@ class MedicoController extends Controller
      */
     public function store(Request $request)
     {
-        
+        $medico = new Medico();
+
+        $medico->dni = $request->dni;
+        $medico->nombre = $request->nombre;
+        $medico->apellido = $request->apellido;
+        $medico->id_especialidad = $request->id_especialidad;
+        $medico->nro_colegiado = $request->nro_colegiado;
+        $medico->id_cargo = $request->id_cargo;
+
+        $medico->save();
+
+        return redirect('/medicos');
     }
 
     /**
@@ -56,9 +72,12 @@ class MedicoController extends Controller
      * @param  \App\Medico  $medico
      * @return \Illuminate\Http\Response
      */
-    public function edit(Medico $medico)
+    public function edit($id)
     {
-        //
+        $medico = Medico::findOrFail($id);
+        $especialidades = Especialidad::all();
+        $cargos = Cargo::all();
+        return view('medicos.edit', compact('medico', 'especialidades', 'cargos'));
     }
 
     /**
@@ -68,9 +87,21 @@ class MedicoController extends Controller
      * @param  \App\Medico  $medico
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Medico $medico)
+    public function update(Request $request, $id)
     {
-        //
+        $medico = Medico::findOrFail($id);
+
+        $medico->dni = $request->dni;
+        $medico->nombre = $request->nombre;
+        $medico->apellido = $request->apellido;
+        $medico->apellido = $request->apellido;
+        $medico->id_especialidad = $request->id_especialidad;
+        $medico->nro_colegiado = $request->nro_colegiado;
+        $medico->id_cargo = $request->id_cargo;
+
+        $medico->save();
+
+        return redirect('/medicos');
     }
 
     /**

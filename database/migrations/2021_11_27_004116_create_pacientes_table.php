@@ -21,7 +21,7 @@ class CreatePacientesTable extends Migration
             $table->string('domicilio');
             $table->string('telefono');
             $table->string('historia_clinica');
-            $table->datetime('fecha_de_nacimiento');
+            $table->date('fecha_de_nacimiento');
             $table->string('genero');
         });
     }
@@ -34,5 +34,5 @@ class CreatePacientesTable extends Migration
     public function down()
     {
         Schema::dropIfExists('pacientes');
-    }
+    } 
 }
