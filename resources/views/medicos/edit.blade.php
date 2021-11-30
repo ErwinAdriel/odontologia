@@ -23,7 +23,7 @@
             <select class="form-control" id="id_especialidad" name="id_especialidad" required>
                 @foreach ($especialidades as $especialidad) 
                     <option value="{{ $especialidad->id }}"
-                     @if ($especialidad->id === $medico->id_especialidad)
+                    @if ($especialidad->id === $medico->id_especialidad)
                             selected
                     @endif
                     >{{ $especialidad->nombre }}</option>

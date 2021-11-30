@@ -28,7 +28,7 @@
                     <td>{{ $medico->nro_colegiado }}</td>
                     <td>{{ $medico->cargo->nombre }}</td>
                     <td>
-                        <a class="text-primary" href="medicos/{{$medico->id}}/edit">Editar</a>
+                        <a class="btn btn-primary" href="medicos/{{$medico->id}}/edit">Editar</a>
                         <a class="text-danger" href="">Eliminar</a>
                     </td>
                 </tr>

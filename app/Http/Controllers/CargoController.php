@@ -92,8 +92,11 @@ class CargoController extends Controller
      * @param  \App\Cargo  $cargo
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Cargo $cargo)
+    public function destroy($id)
     {
-        //
+        $cargo= Cargo::findOrFail($id);
+        $cargo->delete();
+
+        return $cargo;
     }
 }

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Turno;
+use App\Medico;
+use App\Paciente;
 use Illuminate\Http\Request;
 
 class TurnoController extends Controller
@@ -25,7 +27,10 @@ class TurnoController extends Controller
      */
     public function create()
     {
-        return view('turnos.create');
+        $medicos = Medico::all();
+        $pacientes = Paciente::all();
+
+        return view('turnos.create', compact('medicos', 'pacientes'));
     }
 
     /**
@@ -36,7 +41,16 @@ class TurnoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $turno = new Turno();
+
+        $turno->id_medico = $request->id_medico;
+        $turno->id_paciente = $request->id_paciente;
+        $turno->fecha = $request->fecha;
+        $turno->hora = $request->hora;
+
+        $turno->save();
+
+        return redirect('/turnos');
     }
 
     /**
@@ -56,9 +70,12 @@ class TurnoController extends Controller
      * @param  \App\Turno  $turno
      * @return \Illuminate\Http\Response
      */
-    public function edit(Turno $turno)
+    public function edit($id)
     {
-        //
+        $turno = Turno::findOrFail($id);
+        $medicos = Medico::all();
+        $pacientes = Paciente::all();
+        return view('turnos.edit', compact('turno', 'medicos', 'pacientes'));
     }
 
     /**
@@ -68,9 +85,18 @@ class TurnoController extends Controller
      * @param  \App\Turno  $turno
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Turno $turno)
+    public function update(Request $request, $id)
     {
-        //
+        $turno = Turno::findOrFail($id);
+
+        $turno->id_medico = $request->id_medico;
+        $turno->id_paciente = $request->id_paciente;
+        $turno->fecha = $request->fecha;
+        $turno->hora = $request->hora;
+
+        $turno->save();
+
+        return redirect('/turnos');
     }
 
     /**

@@ -18,7 +18,7 @@
                     <th scope="row">{{ $especialidad->id }}</th>
                     <td>{{ $especialidad->nombre }}</td>
                     <td>
-                        <a class="text-primary" href="especialidades/{{$especialidad->id}}/edit">Editar</a>
+                        <a class="btn btn-primary" href="especialidades/{{$especialidad->id}}/edit">Editar</a>
                         <a class="text-danger" href="">Eliminar</a>
                     </td>
                 </tr>

@@ -36,8 +36,8 @@
         <div class="form-group">
             <label for="exampleFormControlSelect1">Genero</label>
             <select class="form-control" id="genero" name="genero">
-            <option value="masculino">Masculino</option>
-            <option value="femenino">Femenino</option>
+            <option value="Masculino">Masculino</option>
+            <option value="Femenino">Femenino</option>
             </select>
         </div>
         <button type="submit" class="btn btn-primary">Guardar</button>

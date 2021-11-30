@@ -69,9 +69,10 @@ class PacienteController extends Controller
      * @param  \App\Paciente  $paciente
      * @return \Illuminate\Http\Response
      */
-    public function edit(Paciente $paciente)
+    public function edit($id)
     {
-        //
+        $paciente = Paciente::findOrFail($id);
+        return view('pacientes.edit', compact('paciente'));
     }
 
     /**
@@ -81,9 +82,21 @@ class PacienteController extends Controller
      * @param  \App\Paciente  $paciente
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Paciente $paciente)
+    public function update(Request $request, $id)
     {
-        //
+        $paciente = Paciente::findOrFail($id);
+
+        $paciente->dni = $request->dni;
+        $paciente->nombre = $request->nombre;
+        $paciente->apellido = $request->apellido;
+        $paciente->domicilio = $request->domicilio;
+        $paciente->telefono = $request->telefono;
+        $paciente->historia_clinica = $request->historia_clinica;
+        $paciente->fecha_de_nacimiento = $request->fecha_de_nacimiento;
+
+        $paciente->save();
+
+        return redirect('/pacientes');
     }
 
     /**

@@ -32,7 +32,7 @@
                     <td>{{ $paciente->fecha_de_nacimiento }}</td>
                     <td>{{ $paciente->genero }}</td>
                     <td>
-                        <a class="text-primary" href="pacientes/{{$paciente->id}}/edit">Editar</a>
+                        <a class="btn btn-primary" href="pacientes/{{$paciente->id}}/edit">Editar</a>
                         <a class="text-danger" href="">Eliminar</a>
                     </td>
                 </tr>

@@ -8,13 +8,17 @@
         <div class="form-group">
             <label for="exampleFormControlSelect1">Medico</label>
             <select class="form-control" id="id_medico" name="id_medico">
-            <option>0</option>
+            @foreach ($medicos as $medico) 
+                <option value="{{ $medico->id }}">{{ $medico->nombre }}</option>
+            @endforeach
             </select>
         </div>
         <div class="form-group">
             <label for="exampleFormControlSelect1">Paciente</label>
             <select class="form-control" id="id_paciente" name="id_paciente">
-            <option>0</option>
+            @foreach ($pacientes as $paciente) 
+                <option value="{{ $paciente->id }}">{{ $paciente->nombre }}</option>
+            @endforeach
             </select>
         </div>
         <div class="form-group">

@@ -9,6 +9,7 @@
             <tr>
             <th scope="col">ID</th>
             <th scope="col">Medico</th>
+            <th scope="col">Especialidad</th>
             <th scope="col">Paciente</th>
             <th scope="col">Fecha</th>
             <th scope="col">Hora</th>
@@ -19,12 +20,13 @@
                 @foreach ($turnos as $turno)
                 <tr>
                     <th scope="row">{{ $turno->id }}</th>
-                    <td>{{ $turno->id_medico }}</td>
-                    <td>{{ $turno->id_paciente }}</td>
+                    <td>{{ $turno->medico->nombre }}</td>
+                    <td>{{ $turno->medico->especialidad->nombre }}</td>
+                    <td>{{ $turno->paciente->nombre }}</td>
                     <td>{{ $turno->fecha }}</td>
                     <td>{{ $turno->hora }}</td>
                     <td>
-                        <a class="text-primary" href="turnos/{{$turno->id}}/edit">Editar</a>
+                        <a class="btn btn-primary" href="turnos/{{$turno->id}}/edit">Editar</a>
                         <a class="text-danger" href="">Eliminar</a>
                     </td>
                 </tr>
