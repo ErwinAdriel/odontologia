@@ -93,8 +93,11 @@ class EspecialidadController extends Controller
      * @param  \App\Especialidad  $especialidad
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Especialidad $especialidad)
+    public function destroy($id)
     {
-        //
+        $especialidad= Especialidad::findOrFail($id);
+        $especialidad->delete();
+
+        return $especialidad;
     }
 }

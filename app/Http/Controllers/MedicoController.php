@@ -110,8 +110,11 @@ class MedicoController extends Controller
      * @param  \App\Medico  $medico
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Medico $medico)
+    public function destroy($id)
     {
-        //
+        $medico= Medico::findOrFail($id);
+        $medico->delete();
+
+        return $medico;
     }
 }

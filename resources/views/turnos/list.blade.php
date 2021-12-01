@@ -5,6 +5,7 @@
     <a class="btn btn-success btn-add" href="turnos/create" role="button">Add</a>
     <div class="table-style">
         <table class="table table-style2 table-bordered">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
         <thead class="thead-dark">
             <tr>
             <th scope="col">ID</th>
@@ -27,7 +28,9 @@
                     <td>{{ $turno->hora }}</td>
                     <td>
                         <a class="btn btn-primary" href="turnos/{{$turno->id}}/edit">Editar</a>
-                        <a class="text-danger" href="">Eliminar</a>
+                        <button type="button" class="btn btn-danger" onclick="onDelete({{$turno->id}}, 'turnos')">
+                        Eliminar
+                        </button>
                     </td>
                 </tr>
                 @endforeach
@@ -36,5 +39,27 @@
     </div>
     
 </div>
+
+<script>
+    function onDelete(id, model){
+    const result = confirm("Está seguro de que desea eliminar este registro?");
+    const url = `/${model}/${id}`;
+    $.ajaxSetup({
+      headers: {
+          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      }
+    });
+
+    if(result){
+      $.ajax({
+            type: "DELETE",
+            url,
+            success: function () {
+                    location.reload();
+                }
+            })
+        }
+    }
+</script>
 
 @endsection

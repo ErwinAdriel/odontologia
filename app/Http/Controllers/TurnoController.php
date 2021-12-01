@@ -105,8 +105,11 @@ class TurnoController extends Controller
      * @param  \App\Turno  $turno
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Turno $turno)
+    public function destroy($id)
     {
-        //
+        $turno = Turno::findOrFail($id);
+        $turno->delete();
+
+        return $turno;
     }
 }

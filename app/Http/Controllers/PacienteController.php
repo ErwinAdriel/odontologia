@@ -105,8 +105,11 @@ class PacienteController extends Controller
      * @param  \App\Paciente  $paciente
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Paciente $paciente)
+    public function destroy($id)
     {
-        //
+        $paciente = Paciente::findOrFail($id);
+        $paciente->delete();
+
+        return $paciente;
     }
 }
