@@ -4,7 +4,7 @@
 <div class="container">
     <a class="btn btn-success btn-add" href="medicos/create" role="button">Add</a>
     <div class="table-style">
-        <table class="table table-style2 table-bordered">
+        <table class="table table-responsive-lg table-style2 table-bordered">
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <thead class="thead-dark">
             <tr>

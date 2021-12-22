@@ -11,8 +11,14 @@
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
 
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
         <!-- Styles -->
         <style>
+            html{
+                position: relative;
+            }
             html, body {
                 background-color: #fff;
                 color: #636b6f;
@@ -28,7 +34,7 @@
 
             .flex-center {
                 align-items: center;
-                display: flex;
+                
                 justify-content: center;
             }
 
@@ -47,7 +53,7 @@
             }
 
             .title {
-                font-size: 84px;
+                margin-top:10%;
             }
 
             .links > a {
@@ -63,24 +69,24 @@
             .m-b-md {
                 margin-bottom: 30px;
             }
+
+            .footer{
+                bottom: 0;
+                margin-top:20%;
+            }
+
         </style>
     </head>
     <body>
-        <div class="flex-center position-ref full-height">
+        <div class="">
             <div class="content">
                 <div class="title m-b-md">
-                    Clínica de Odontología
+                    <h1 class="display-2">Clínica de Odontología</h1>
                 </div>
-
-                <div class="links">
-                    <a href="/medicos">Medicos</a>
-                    <a href="/cargos">Cargos</a>
-                    <a href="/pacientes">Pacientes</a>
-                    <a href="/especialidades">Especialidades</a>
-                    <a href="/turnos">Turnos</a>
-                </div>
+                @include('header')
             </div>
         </div>
+        @include('footer')
         <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
