@@ -2,6 +2,12 @@
 @section('main')
 
 <div class="container">
+    <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Medicos</li>
+    </ol>
+    </nav>
     <a class="btn btn-success btn-add" href="medicos/create" role="button">Add</a>
     <div class="table-style">
         <table class="table table-responsive-lg table-style2 table-bordered">
